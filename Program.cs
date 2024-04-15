@@ -6,16 +6,36 @@ namespace tp04_Lopez
     {
         static void Main(string[] args)
         {
+int horas, minutos, segundos;
+bool esValido = false;
+do
+{
 
+    (horas, minutos, segundos) = IngresoHorario("Ingrese la hora actual", "ahora los minutos", "y los segundos");
+    esValido = Validar(horas, minutos, segundos);
 
-            (int horas, int minutos, int segundos)= IngresoHorario("Ingrese la hora actual", "ahora los minutos", "y los segundos");
+    if (!esValido)
+    {
+        Console.WriteLine("No es un horario válido. Por favor, ingrese los datos nuevamente");
+    }
+}
+while (!esValido);
 
-             (horas, minutos, segundos) = CalcularHora(horas, minutos, segundos);
+            (horas, minutos, segundos) = CalcularHora(horas, minutos, segundos);
 
             MostrarReloj(horas, minutos, segundos);
         }
        
         //MODULOS
+
+          static bool Validar(int hora, int min, int seg)
+  { 
+  if (hora < 0 || hora > 23 || min < 0 || min > 60 || seg < 0 || seg > 60)
+      {
+          return false;
+      }
+      return true;
+  }
         static (int, int, int) IngresoHorario(string mensaje1, string mensaje2, string mensaje3)
         {
             Console.WriteLine(mensaje1);
