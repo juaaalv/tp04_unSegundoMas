@@ -30,7 +30,7 @@ while (!esValido);
 
           static bool Validar(int hora, int min, int seg)
   { 
-  if (hora < 0 || hora > 23 || min < 0 || min > 60 || seg < 0 || seg > 60)
+  if (hora < 0 || hora > 23 || min < 0 || min > 59 || seg < 0 || seg > 59)
       {
           return false;
       }
